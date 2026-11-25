@@ -1,0 +1,14 @@
+# Build and editor files
+/build/
+bin/
+obj/
+.vs/
+*.exe
+*.pdb
+*.user
+
+# Local game library
+Covers/
+*.sqlite3
+*.sqlite3-*
+*.location

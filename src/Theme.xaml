@@ -1,0 +1,171 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <SolidColorBrush x:Key="Ink" Color="#21312D"/>
+  <SolidColorBrush x:Key="Muted" Color="#53655D"/>
+  <SolidColorBrush x:Key="Base" Color="#EEEFE8"/>
+  <SolidColorBrush x:Key="Paper" Color="#FAFAF4"/>
+  <SolidColorBrush x:Key="Line" Color="#D6DCD2"/>
+  <SolidColorBrush x:Key="Green" Color="#205B4D"/>
+  <SolidColorBrush x:Key="Pale" Color="#DCE9DF"/>
+  <SolidColorBrush x:Key="Rail" Color="#E8ECE3"/>
+  <SolidColorBrush x:Key="Chrome" Color="#E7ECE4"/>
+  <SolidColorBrush x:Key="Error" Color="#922F27"/>
+  <Style TargetType="Button">
+    <Setter Property="FontSize" Value="13"/>
+    <Setter Property="FontWeight" Value="SemiBold"/>
+    <Setter Property="Foreground" Value="{StaticResource Ink}"/>
+    <Setter Property="Background" Value="#F7F8F1"/>
+    <Setter Property="BorderBrush" Value="#C5D2C7"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="Padding" Value="12,7"/>
+    <Setter Property="MinHeight" Value="32"/>
+    <Setter Property="Cursor" Value="Hand"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Button">
+          <Grid>
+            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
+              <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+            </Border>
+            <Border x:Name="Hover" IsHitTestVisible="False" CornerRadius="5" Background="#173C2F" Opacity="0"/>
+            <Border x:Name="Focus" IsHitTestVisible="False" CornerRadius="5" BorderBrush="#359078" BorderThickness="2" Visibility="Collapsed"/>
+          </Grid>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Hover" Property="Opacity" Value=".11"/></Trigger>
+            <Trigger Property="IsPressed" Value="True"><Setter TargetName="Hover" Property="Opacity" Value=".23"/></Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Focus" Property="Visibility" Value="Visible"/></Trigger>
+            <Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value=".54"/></Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style x:Key="PrimaryButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+    <Setter Property="Background" Value="{StaticResource Green}"/>
+    <Setter Property="BorderBrush" Value="{StaticResource Green}"/>
+    <Setter Property="Foreground" Value="White"/>
+  </Style>
+  <Style x:Key="PlainButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="HorizontalContentAlignment" Value="Left"/>
+  </Style>
+  <Style x:Key="DangerButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+    <Setter Property="Background" Value="#922F27"/>
+    <Setter Property="BorderBrush" Value="#922F27"/>
+    <Setter Property="Foreground" Value="White"/>
+  </Style>
+  <Style x:Key="DeleteLink" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderBrush" Value="#DCC4BD"/>
+    <Setter Property="Foreground" Value="{StaticResource Error}"/>
+  </Style>
+  <Style x:Key="CaptionButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="Padding" Value="0"/>
+    <Setter Property="MinHeight" Value="0"/>
+    <Setter Property="Height" Value="33"/>
+    <Setter Property="Width" Value="43"/>
+    <Setter Property="Cursor" Value="Arrow"/>
+  </Style>
+  <Style x:Key="CaptionClose" TargetType="Button" BasedOn="{StaticResource CaptionButton}">
+    <Style.Triggers>
+      <Trigger Property="IsMouseOver" Value="True">
+        <Setter Property="Background" Value="#93332B"/>
+        <Setter Property="Foreground" Value="White"/>
+      </Trigger>
+    </Style.Triggers>
+  </Style>
+  <Style x:Key="BookButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="Padding" Value="3"/>
+    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+    <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+    <Setter Property="Foreground" Value="#F1EAD5"/>
+  </Style>
+  <Style TargetType="TextBox">
+    <Setter Property="FontSize" Value="13"/>
+    <Setter Property="Background" Value="#FFFEFA"/>
+    <Setter Property="Foreground" Value="{StaticResource Ink}"/>
+    <Setter Property="BorderBrush" Value="#BACABD"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="Padding" Value="7,5"/>
+    <Setter Property="MinHeight" Value="31"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+  </Style>
+  <Style TargetType="ComboBox">
+    <Setter Property="FontSize" Value="13"/>
+    <Setter Property="Foreground" Value="{StaticResource Ink}"/>
+    <Setter Property="Padding" Value="6,4"/>
+    <Setter Property="MinHeight" Value="31"/>
+  </Style>
+  <Style x:Key="ScoreTrackPart" TargetType="RepeatButton">
+    <Setter Property="Focusable" Value="False"/>
+    <Setter Property="IsTabStop" Value="False"/>
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="RepeatButton">
+          <Grid Background="Transparent">
+            <Border Height="6" CornerRadius="3" Background="{TemplateBinding Background}"/>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style x:Key="ScoreSlider" TargetType="Slider">
+    <Setter Property="Height" Value="30"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="Cursor" Value="Hand"/>
+    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Slider">
+          <Grid Background="Transparent">
+            <Border Height="6" CornerRadius="3" Margin="7,0" Background="#DCE7DB"/>
+            <Track x:Name="PART_Track" Focusable="False">
+              <Track.DecreaseRepeatButton>
+                <RepeatButton x:Name="FilledTrack" Style="{StaticResource ScoreTrackPart}"
+                              Background="#548872" Command="{x:Static Slider.DecreaseLarge}"/>
+              </Track.DecreaseRepeatButton>
+              <Track.Thumb>
+                <Thumb Width="15" Height="15" Cursor="Hand">
+                  <Thumb.Template>
+                    <ControlTemplate TargetType="Thumb">
+                      <Ellipse Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="1.5"/>
+                    </ControlTemplate>
+                  </Thumb.Template>
+                  <Thumb.Background>#F8FCF6</Thumb.Background>
+                  <Thumb.BorderBrush>#367A64</Thumb.BorderBrush>
+                </Thumb>
+              </Track.Thumb>
+              <Track.IncreaseRepeatButton>
+                <RepeatButton Style="{StaticResource ScoreTrackPart}" Command="{x:Static Slider.IncreaseLarge}"/>
+              </Track.IncreaseRepeatButton>
+            </Track>
+            <Border x:Name="TrackFocus" CornerRadius="5" BorderBrush="#3D8C75" BorderThickness="1"
+                    IsHitTestVisible="False" Visibility="Collapsed"/>
+          </Grid>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+              <Setter TargetName="TrackFocus" Property="Visibility" Value="Visible"/>
+            </Trigger>
+            <Trigger Property="Tag" Value="Unscored">
+              <Setter TargetName="PART_Track" Property="Opacity" Value=".55"/>
+              <Setter TargetName="FilledTrack" Property="Background" Value="Transparent"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+              <Setter Property="Opacity" Value=".5"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+</ResourceDictionary>
